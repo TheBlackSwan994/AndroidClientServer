@@ -7,7 +7,6 @@ import QtQuick.Controls 2.12
         visible: true
         minimumWidth: 375
         minimumHeight: 667
-        color: "#FFFAFA"
 
 
     StackView{
@@ -22,7 +21,7 @@ import QtQuick.Controls 2.12
 
     AuthorizationPage {
         id: authorizationPg
-        background: color = "#DCDCDC"
+        background: color = "#C5C7C6"
         onPageReg: {stack_main.push(registrationPg)}
         onPageRec: {stack_main.push(recoveryPassPg)}
         onPageChats: {stack_main.push(chatsViPg)}
@@ -31,7 +30,7 @@ import QtQuick.Controls 2.12
 
     RegistrationPage {
         id: registrationPg
-        background: color = "#DCDCDC"
+        background: color = "#C5C7C6"
         visible: false
         onBackPg: {stack_main.pop()}
 
@@ -39,7 +38,7 @@ import QtQuick.Controls 2.12
 
     RecoveryPassPage {
         id: recoveryPassPg
-        background: color = "#DCDCDC"
+        background: color = "#C5C7C6"
         visible: false
         onBackPg: {stack_main.pop()}
 
@@ -48,7 +47,7 @@ import QtQuick.Controls 2.12
         ChatsView {
         id:  chatsViPg
         visible: false
-        background: color = "#DCDCDC"
+        background: color = "#C5C7C6"
         onBackPg: {stack_main.pop()}
 
                 }

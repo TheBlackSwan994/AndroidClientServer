@@ -22,7 +22,7 @@ Page{
         visible: true
         Layout.alignment: Qt.AlignCenter
         anchors.top: parent.top
-        color: "#DCDCDC"
+        color: "#C5C7C6"
 
         Image {
             anchors.fill: parent
@@ -39,17 +39,17 @@ Page{
     Rectangle{
             //Внешний вид поля TextInput
             implicitWidth: parent -10
-            height: 40
+            height: 60
             border.width: 1
             color: "#ffffff"
-            radius: 8
+            radius: 16
         TextInput
             {
                 id: inputNumber
                 color: "#000000"
                 inputMask:  "+7 (000) 000 00 00"
                 maximumLength: 15
-                font.pointSize: 12
+                font.pointSize: 16
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -63,17 +63,18 @@ Page{
     Rectangle{
         //Внешний вид поля TextInput
         implicitWidth: parent -10
-        height: 40
+        height: 60
         border.width: 1
         color: "#ffffff"
-        radius: 8
+        radius: 16
+
     TextInput
         {
                 id: inputPassword
                 color: "#000000"
                 echoMode: isVisiblePass.pressed? TextInput.Normal : TextInput.Password
                 maximumLength: 25
-                font.pointSize: 12
+                font.pointSize: 16
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -109,9 +110,9 @@ Page{
 
 
     onClicked: {pageRec()}
-    font.pointSize: 10
+    font.pointSize: 16
     background: Rectangle{
-        color: "#DCDCDC"
+        color: "#C5C7C6"
     }
     Layout.alignment: Qt.AlignRight
 
@@ -126,13 +127,13 @@ Page{
            Text{
                anchors.centerIn: parent
            text: "Войти"
-           font.pointSize: 12
+           font.pointSize: 18
            color: "#ffffff"
            }
         implicitWidth: parent -10
-        implicitHeight: 50
-        color: confirmButton.down?"#3A78AC":"#4682B4"
-        radius: 8
+        implicitHeight: 70
+        color: "#29303C"
+        radius: 16
 
 
        }
@@ -147,9 +148,9 @@ Page{
     font.underline: true
 
     onClicked: {pageReg()}
-    font.pointSize: 10
+    font.pointSize: 16
     background: Rectangle{
-        color: "#DCDCDC"
+        color: "#C5C7C6"
     }
     Layout.alignment: Qt.AlignRight
 

@@ -16,48 +16,55 @@ import QtQuick.Controls 2.5
 
 
 
-    ToolBar{
+            Rectangle{
+                    implicitWidth: parent
+                    height: 60
+                    color: "#C5C7C6"
         Button{
         Layout.alignment: Qt.AlignLeft
         onClicked: {backPg()}
-        font.pointSize: 20
+        font.pointSize: 24
+
         text: StackView.depth ? "\u25C0":"\u2190"
         background: Rectangle{
-        color: "#DCDCDC"
+        color: "#C5C7C6"
         }
     }
-    }
+
 
         Label{
         text: "Создать аккаунт"
-        font.pointSize: 12
+        font.pointSize: 20
+        font.family: Typography
+        font.styleName: Montserrat
+        font.bold: true
         color: "#000000"
-        Layout.alignment: Qt.AlignCenter
+        anchors.centerIn: parent
 
         }
-
+                    }
         Label{
         text: "Имя"
-        font.pointSize: 12
+        font.pointSize: 18
         color: "#000000"
-        Layout.alignment: Qt.AlignLeft
 
         }
 
 
     Rectangle{
             //Внешний вид поля TextInput
-            implicitWidth: parent -10
-            height: 40
-            border.width: 1
+            implicitWidth: registrationPg.width*0.8
+            Layout.alignment: Qt.AlignCenter
+
+            height: 60
             color: "#ffffff"
-            radius: 8
+            radius: 16
         TextInput
             {
                 id: name
                 color: "#000000"
                 maximumLength: 15
-                font.pointSize: 12
+                font.pointSize: 18
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -68,26 +75,26 @@ import QtQuick.Controls 2.5
 
     Label{
     text: "Фамилия"
-    font.pointSize: 12
+    font.pointSize: 18
     color: "#000000"
-    Layout.alignment: Qt.AlignLeft
 
     }
 
 
     Rectangle{
             //Внешний вид поля TextInput
-            implicitWidth: parent -10
-            height: 40
-            border.width: 1
+            implicitWidth: registrationPg.width*0.8
+            Layout.alignment: Qt.AlignCenter
+
+            height: 60
             color: "#ffffff"
-            radius: 8
+            radius: 16
         TextInput
             {
                 id: inpSurn
                 color: "#000000"
                 maximumLength: 15
-                font.pointSize: 12
+                font.pointSize: 18
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -98,26 +105,26 @@ import QtQuick.Controls 2.5
 
     Label{
     text: "Придумайте ник"
-    font.pointSize: 12
+    font.pointSize: 18
     color: "#000000"
-    Layout.alignment: Qt.AlignLeft
 
     }
 
     //Inp Nickname
         Rectangle{
                 //Внешний вид поля TextInput
-                implicitWidth: parent -10
-                height: 40
-                border.width: 1
+                implicitWidth: registrationPg.width*0.8
+                Layout.alignment: Qt.AlignCenter
+
+                height: 60
                 color: "#ffffff"
-                radius: 8
+                radius: 16
             TextInput
                 {
                     id: inpNickn
                     color: "#000000"
                     maximumLength: 15
-                    font.pointSize: 12
+                    font.pointSize: 18
                     anchors.centerIn: parent
                     anchors.fill: parent
                     verticalAlignment: Text.AlignVCenter
@@ -129,9 +136,8 @@ import QtQuick.Controls 2.5
 
     Label{
     text: "Введите номер телефона"
-    font.pointSize: 12
+    font.pointSize: 18
     color: "#000000"
-    Layout.alignment: Qt.AlignLeft
 
     }
 
@@ -139,18 +145,19 @@ import QtQuick.Controls 2.5
     //InpNumber
         Rectangle{
                 //Внешний вид поля TextInput
-                implicitWidth: parent -10
-                height: 40
-                border.width: 1
+                implicitWidth: registrationPg.width*0.8
+                Layout.alignment: Qt.AlignCenter
+
+                height: 60
                 color: "#ffffff"
-                radius: 8
+                radius: 16
             TextInput
                 {
                     id: inputNumber
                     color: "#000000"
                     inputMask:  "+7 (000) 000 00 00"
                     maximumLength: 15
-                    font.pointSize: 12
+                    font.pointSize: 18
                     anchors.centerIn: parent
                     anchors.fill: parent
                     verticalAlignment: Text.AlignVCenter
@@ -161,9 +168,8 @@ import QtQuick.Controls 2.5
 
     Label{
     text: "Придумайте пароль"
-    font.pointSize: 12
+    font.pointSize: 18
     color: "#000000"
-    Layout.alignment: Qt.AlignLeft
 
     }
 
@@ -173,11 +179,12 @@ import QtQuick.Controls 2.5
     //InputPass
     Rectangle{
         //Внешний вид поля TextInput
-        implicitWidth: parent -10
-        height: 40
-        border.width: 1
+        implicitWidth: registrationPg.width*0.8
+        Layout.alignment: Qt.AlignCenter
+
+        height: 60
         color: "#ffffff"
-        radius: 8
+        radius: 16
 
     TextInput
         {
@@ -185,7 +192,7 @@ import QtQuick.Controls 2.5
                 color: "#000000"
                 echoMode: isVisiblePass.pressed? TextInput.Normal : TextInput.Password
                 maximumLength: 25
-                font.pointSize: 12
+                font.pointSize: 18
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -216,21 +223,22 @@ import QtQuick.Controls 2.5
 
     Label{
     text: "Повторите пароль"
-    font.pointSize: 12
+    font.pointSize: 18
     color: "#000000"
-    Layout.alignment: Qt.AlignLeft
 
     }
 
 //RepeatPass
     Rectangle{
+
         id: repeatPass
         //Внешний вид поля TextInput
-        implicitWidth: parent -10
-        height: 40
-        border.width: 1
+        implicitWidth: registrationPg.width*0.8
+        Layout.alignment: Qt.AlignCenter
+
+        height: 60
         color: "#ffffff"
-        radius: 8
+        radius: 16
 
     TextInput
         {
@@ -238,7 +246,7 @@ import QtQuick.Controls 2.5
                 color: "#000000"
                 echoMode: isVisiblePassRep.pressed? TextInput.Normal : TextInput.Password
                 maximumLength: 25
-                font.pointSize: 12
+                font.pointSize: 18
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -267,31 +275,24 @@ import QtQuick.Controls 2.5
     }
 }
 
-    Item {
-        id: spacer
-        height: 40
-
-
-    }
 
 
 
     Button{
     id: regButton
-
     Layout.alignment: Qt.AlignCenter
     enabled: false
        background: Rectangle{
            Text{
                anchors.centerIn: parent
            text: "Зарегистрироваться"
-           font.pointSize: 12
+           font.pointSize: 18
            color: "#ffffff"
            }
-        implicitWidth: parent -10
-        implicitHeight: 50
-        color: regButton.down?"#3A78AC":"#4682B4"
-        radius: 8
+        implicitWidth: registrationPg.width*0.8
+        implicitHeight: 60
+        color: "#29303C"
+        radius: 16
 
 
 
