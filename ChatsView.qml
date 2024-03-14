@@ -81,97 +81,101 @@ import QtQuick.Controls 2.12
 
             Rectangle{
                 id:chatsArea
-                anchors.top: parent.top
-                anchors.topMargin: 60
-            height: parent.height-40
-            width: parent.width
+                y:chatsHeader.height
+            height: chatsPg.height -chatsHeader.height
+            width: chatsPg.width
 
 
             ListModel {
-                    id: dataModel
+                  id: chatsDataModel
+
+                  ListElement {name:"Василий"; lastMSG:"Привет, как скоро проект будет готов?" }
+                  ListElement {name: "Елизавета"; lastMSG:"давай в 20:00" }
+
+
+              }
+
+            ListView {
+                     id: contactView
+
+                     anchors.fill: chatsArea
+                     spacing: 10
+                     model: chatsDataModel
+                     clip: true
 
 
 
+                     delegate: Item{
+                         id: delegateOfListViewChats
+                         width: contactView.width
+                         height: 60
+                         Rectangle {
+                             color: "#000000"
 
-                    ListElement {
-                        text: "user 1 (value from DB)"
-
-                        source:"qrc:/ZJNoNvgz-RHNlfIYnh4UsLAN3H64fEJ4v2e7UgXUPC-kUh8Je9FHpKaadD2BhWV4mN2GGGXQksmjAtBCSsOfKRi3.jpg"
-
-                    }
-                    ListElement {
-
-                        text: "user 2 (value from DB)"
-
-                    }
-                    ListElement {
-
-                        text: "user 3 (value from DB)"
-
-                    }
-
-
-
-
-
-
-                }
-
-                ListView {
-                    id: view
-
-                    anchors.margins: 10
-                    anchors.fill: parent
-                    spacing: 10
-                    model: dataModel
-                    clip: true
-
-
-
-                    delegate: Item {
-                        id: listDelegate
-
-
-
-                        width: view.width
-                        height: 60
-
-
-                        Rectangle {
-
-                            anchors.margins: 1
-                            anchors.fill: parent
-                            Button
-                            {
-                            id: toChat
-                            anchors.fill: parent
-                            onClicked: {goChat(model.id)}
-                            }
-                            color: toChat.down? "#e0e0e0":"a0a0a0"
+                             anchors.margins: 5
+                             anchors.fill: parent
 
                             Rectangle{
                                 anchors.left: parent.left
                                 anchors.top: parent.top
                                 anchors.bottom: parent.bottom
-                                anchors.margins: 10
-                                width: 40
-                                height: 40
-                                radius: width/2
-
-
+                                anchors.margins: 5
+                            color:"#ffffff"
+                            id: imageContact
+                            height: 50
+                            width: height
+                            radius: height/2
 
                             }
 
-                            Text {
-                                anchors.centerIn: parent
-                                font.pointSize: 12
-                                text: "%1".arg(model.text)
-                            }
+                             Text {
+                                 id: userName
+                                 anchors.left: imageContact.right
+                                 anchors.leftMargin: 10
+                                 text: model.name
+                                 color: "#ffffff"
+                                 font.pointSize: 24
+                                 verticalAlignment: Qt.AlignTop
+                             }
+
+                             Text {
+                                 id:lastMessageText
+                                 anchors.top:  userName.bottom
+                                 anchors.left: imageContact.right; anchors.leftMargin: 10
+                                 verticalAlignment: Qt.AlignBottom
+                                 font.pointSize: 12
+                                 text: model.lastMSG
+                                 color: "#888888"
+
+                             }
+
+                             Text {
+                               anchors.right: parent.right
+                               text: pageStack.depth?"\uFE19":"\uFE19"
+                               font.pointSize: 8
+                               color: "#000000"
+                             }
 
 
-                        }
-                    }
-                }
+                             MouseArea {
+                                 id:goToChatPg
+                                 anchors.fill: parent
+                                 onClicked:{
+                                     pageStack.push(Qt.resolvedUrl(model.path))
+                                 }
+
+
+
+                             }
+                         }
+
+                     }
+
+
+
+
+                 }
+
 
             }
 
