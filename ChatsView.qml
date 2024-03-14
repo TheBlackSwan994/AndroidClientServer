@@ -8,78 +8,59 @@ import QtQuick.Controls 2.12
 
         id: chatsPg
 
-        Rectangle {
-            anchors.fill: parent
-            //Место для вспылвающего окна
-            Popup{
+
+            Drawer{
                 id: menu_main
-            width: parent.width/2
-            height: parent.height
+            width: chatsPg.width*0.85
+            height: chatsPg.height
             modal: true
             focus: true
-            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+            closePolicy: Drawer.CloseOnPressOutside
+
 
 
 
                 Button{
                     anchors.top: parent.top
                     id:buttClose
-                    height: 30
-                    width: parent.width
-                    onClicked: menu_main.close()
-                    background: Rectangle{
-                        color: buttClose.down?"#3A78AC":"#4682B4"
-                        Text {
-                            anchors.centerIn: parent
-                            text: "Закрыть"
-                            font.pointSize: 10
-                            color: "#ffffff"
-
-
-
-                        }
-                    }
-
-                    Button{
-                        anchors.top: parent.bottom
-                        anchors.topMargin: 10
-                    id: buttBack
-                    height: 30
+                    height: 60
                     width: parent.width
                     onClicked: {
                         menu_main.close()
                         backPg()
                     }
                     background: Rectangle{
-                        color: buttBack.down?"#3A78AC":"#4682B4"
+                        color: "#29303C"
                         Text {
                             anchors.centerIn: parent
                             text:"Выйти"
-                            font.pointSize: 10
+                            font.pointSize: 16
                             color: "#ffffff"
-
-                             }
 
                         }
                     }
+
+
                 }
 
                 }
-              ToolBar {
+              Rectangle {
+                  id: chatsHeader
                   width: parent.width
-                  height: 40
+                  height: 60
                     RowLayout {
                         anchors.fill: parent
-                        ToolButton {
-                            text: StackView.depth ? "\u25C0":"\u2630"
-                            font.pointSize: 16
+                        Button {
+                            text: "="
+                            background: Rectangle{ color:"#ffffff"}
+                            font.pointSize: 28
                               onClicked: menu_main.open()
                             //onClicked: menu.open()
                             //onClicked: stack.pop()
                         }
 
                         Label {
-                            font.pointSize: 16
+                            font.pointSize: 24
                             color: "#000000"
                         text: "Чаты"
                             elide: Label.ElideRight
@@ -87,32 +68,29 @@ import QtQuick.Controls 2.12
                             verticalAlignment: Qt.AlignVCenter
                             Layout.fillWidth: true
                         }
-                        ToolButton {
+                        Button {
                             text: "+"
-                            font.pointSize: 16
+                            background: Rectangle{ color:"#ffffff"}
+                            font.pointSize: 20
                             //onClicked: menu.open()
                         }
                     }
+                    Rectangle{id: lineOnHeader; height:1; width:chatsPg.width; anchors.bottom: parent.bottom; color:"#000000" }
                 }
 
 
             Rectangle{
+                id:chatsArea
                 anchors.top: parent.top
-                anchors.topMargin: 40
+                anchors.topMargin: 60
             height: parent.height-40
             width: parent.width
 
-            //Место для тулбара-кнопки снизу справа
-
-            //Место для тулбара-кнопки снизу справа
 
             ListModel {
                     id: dataModel
 
-                    //Надо реализовать логику с  добавлением элементов в это поле с помощью отдельной кнопки и значениями из базы данных
-                    //Также реализовать изменение Icon для каждого элемента вместо дефелтного указанного в delegate
-                    //Логику перехода в окно чата
-                    //И логику показывания последнего сообщения
+
 
 
                     ListElement {
@@ -197,6 +175,6 @@ import QtQuick.Controls 2.12
 
             }
 
-}
+
 
 }
