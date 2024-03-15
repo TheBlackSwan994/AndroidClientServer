@@ -53,7 +53,7 @@ import QtQuick.Controls 2.5
 
     Rectangle{
             //Внешний вид поля TextInput
-            implicitWidth: registrationPg.width*0.8
+            implicitWidth: registrationPg.width*0.9
             Layout.alignment: Qt.AlignCenter
 
             height: 60
@@ -83,7 +83,7 @@ import QtQuick.Controls 2.5
 
     Rectangle{
             //Внешний вид поля TextInput
-            implicitWidth: registrationPg.width*0.8
+            implicitWidth: registrationPg.width*0.9
             Layout.alignment: Qt.AlignCenter
 
             height: 60
@@ -113,7 +113,7 @@ import QtQuick.Controls 2.5
     //Inp Nickname
         Rectangle{
                 //Внешний вид поля TextInput
-                implicitWidth: registrationPg.width*0.8
+                implicitWidth: registrationPg.width*0.9
                 Layout.alignment: Qt.AlignCenter
 
                 height: 60
@@ -143,28 +143,28 @@ import QtQuick.Controls 2.5
 
 
     //InpNumber
-        Rectangle{
-                //Внешний вид поля TextInput
-                implicitWidth: registrationPg.width*0.8
-                Layout.alignment: Qt.AlignCenter
-
-                height: 60
-                color: "#ffffff"
-                radius: 16
-            TextInput
-                {
-                    id: inputNumber
-                    color: "#000000"
-                    inputMask:  "+7 (000) 000 00 00"
-                    maximumLength: 15
-                    font.pointSize: 18
-                    anchors.centerIn: parent
-                    anchors.fill: parent
-                    verticalAlignment: Text.AlignVCenter
-                    anchors.left: parent
-                    anchors.leftMargin: 10
-                }
+    Rectangle{
+            //Внешний вид поля TextInput
+            implicitWidth: parent *0.9
+            height: 60
+            color: "#ffffff"
+            radius: 16
+            clip: true
+        TextInput
+            {
+                id: inputNumberReg
+                color: "#000000"
+                inputMask:  "+7 (000) 000 00 00"
+                maximumLength: 15
+                font.pointSize: 20
+                anchors.centerIn: parent
+                anchors.fill: parent
+                verticalAlignment: Text.AlignVCenter
+                anchors.left: parent
+                anchors.leftMargin: 10
             }
+        }
+
 
     Label{
     text: "Придумайте пароль"
@@ -179,42 +179,42 @@ import QtQuick.Controls 2.5
     //InputPass
     Rectangle{
         //Внешний вид поля TextInput
-        implicitWidth: registrationPg.width*0.8
-        Layout.alignment: Qt.AlignCenter
-
+        implicitWidth: parent *0.9
         height: 60
         color: "#ffffff"
         radius: 16
+        clip: true
 
     TextInput
         {
-                id: inputPassword
+                id: inputInventedPassword
                 color: "#000000"
                 echoMode: isVisiblePass.pressed? TextInput.Normal : TextInput.Password
                 maximumLength: 25
-                font.pointSize: 18
+                font.pointSize: 20
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
                 anchors.left: parent
                 anchors.leftMargin: 10
-        }
 
+
+        }
         Button{
-            id: isVisiblePass
+            id: isVisibleInventedPass
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.topMargin: 2
-            anchors.rightMargin: 10
-            width: 25
-            height: 25
+            anchors.rightMargin: 5
+            width: 35
+            height: 35
            background:  Rectangle{
         anchors.fill: parent
         Image {
             width: parent.width
             height: parent.height
-            id: buttVisible
-            source:isVisiblePass.pressed?"qrc:/visible.png":"qrc:/hide.png"
+            id: buttInventedVisible
+            source:isVisibleInventedPass.pressed?"qrc:/qt/qml/Authorization1Mar/hide.png":"qrc:/qt/qml/Authorization1Mar/visible.png"
         }
         }
 
@@ -230,45 +230,43 @@ import QtQuick.Controls 2.5
 
 //RepeatPass
     Rectangle{
-
-        id: repeatPass
         //Внешний вид поля TextInput
-        implicitWidth: registrationPg.width*0.8
-        Layout.alignment: Qt.AlignCenter
-
+        implicitWidth: parent *0.9
         height: 60
         color: "#ffffff"
         radius: 16
+        clip: true
 
     TextInput
         {
                 id: inputPasswordRep
                 color: "#000000"
-                echoMode: isVisiblePassRep.pressed? TextInput.Normal : TextInput.Password
+                echoMode: isVisiblePass.pressed? TextInput.Normal : TextInput.Password
                 maximumLength: 25
-                font.pointSize: 18
+                font.pointSize: 20
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
                 anchors.left: parent
                 anchors.leftMargin: 10
-        }
 
+
+        }
         Button{
             id: isVisiblePassRep
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.topMargin: 2
-            anchors.rightMargin: 10
-            width: 25
-            height: 25
+            anchors.rightMargin: 5
+            width: 35
+            height: 35
            background:  Rectangle{
         anchors.fill: parent
         Image {
             width: parent.width
             height: parent.height
             id: buttVisibleRep
-            source:isVisiblePassRep.pressed?"qrc:/visible.png":"qrc:/hide.png"
+            source:isVisiblePassRep.pressed?"qrc:/qt/qml/Authorization1Mar/hide.png":"qrc:/qt/qml/Authorization1Mar/visible.png"
         }
         }
 
@@ -289,7 +287,7 @@ import QtQuick.Controls 2.5
            font.pointSize: 18
            color: "#ffffff"
            }
-        implicitWidth: registrationPg.width*0.8
+        implicitWidth: registrationPg.width*0.9
         implicitHeight: 60
         color: "#29303C"
         radius: 16

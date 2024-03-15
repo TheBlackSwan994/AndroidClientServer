@@ -65,12 +65,11 @@ Rectangle{
             radius: 16
         TextInput
             {
-                height: parent.height
-                width: parent.width
-                id: inpNickn
+                id: inputNumber
                 color: "#000000"
+                inputMask:  "+7 (000) 000 00 00"
                 maximumLength: 15
-                font.pointSize: 18
+                font.pointSize: 16
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter

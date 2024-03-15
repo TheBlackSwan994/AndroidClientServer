@@ -38,18 +38,18 @@ Page{
 //InpNumber
     Rectangle{
             //Внешний вид поля TextInput
-            implicitWidth: parent -10
+            implicitWidth: parent *0.9
             height: 60
-            border.width: 1
             color: "#ffffff"
             radius: 16
+            clip: true
         TextInput
             {
                 id: inputNumber
                 color: "#000000"
                 inputMask:  "+7 (000) 000 00 00"
                 maximumLength: 15
-                font.pointSize: 16
+                font.pointSize: 20
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -62,11 +62,11 @@ Page{
 //PasswordInput
     Rectangle{
         //Внешний вид поля TextInput
-        implicitWidth: parent -10
+        implicitWidth: parent *0.9
         height: 60
-        border.width: 1
         color: "#ffffff"
         radius: 16
+        clip: true
 
     TextInput
         {
@@ -74,7 +74,7 @@ Page{
                 color: "#000000"
                 echoMode: isVisiblePass.pressed? TextInput.Normal : TextInput.Password
                 maximumLength: 25
-                font.pointSize: 16
+                font.pointSize: 20
                 anchors.centerIn: parent
                 anchors.fill: parent
                 verticalAlignment: Text.AlignVCenter
@@ -88,16 +88,16 @@ Page{
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             anchors.topMargin: 2
-            anchors.rightMargin: 10
-            width: 25
-            height: 25
+            anchors.rightMargin: 5
+            width: 35
+            height: 35
            background:  Rectangle{
         anchors.fill: parent
         Image {
             width: parent.width
             height: parent.height
             id: buttVisible
-            source:isVisiblePass.pressed?"qrc:/visible.png":"qrc:/hide.png"
+            source:isVisiblePass.pressed?"qrc:/qt/qml/Authorization1Mar/hide.png":"qrc:/qt/qml/Authorization1Mar/visible.png"
         }
         }
 
