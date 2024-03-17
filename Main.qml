@@ -49,7 +49,7 @@ import QtQuick.Controls 2.12
         visible: false
         background: color = "#C5C7C6"
         onBackPg: {stack_main.pop()}
-
+        onGoChat: {stack_main.push(userChat1)}
                 }
 
 

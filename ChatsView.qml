@@ -55,8 +55,7 @@ import QtQuick.Controls 2.12
                             background: Rectangle{ color:"#ffffff"}
                             font.pointSize: 28
                               onClicked: menu_main.open()
-                            //onClicked: menu.open()
-                            //onClicked: stack.pop()
+
                         }
 
                         Label {
@@ -89,7 +88,7 @@ import QtQuick.Controls 2.12
             ListModel {
                   id: chatsDataModel
 
-                  ListElement {name:"Василий"; lastMSG:"Привет, как скоро проект будет готов?" }
+                  ListElement {name:"Василий"; lastMSG:"Привет, как скоро проект будет готов?"; path:"UsersChatPg.qml" }
                   ListElement {name: "Елизавета"; lastMSG:"давай в 20:00" }
 
 
@@ -99,7 +98,7 @@ import QtQuick.Controls 2.12
                      id: contactView
 
                      anchors.fill: chatsArea
-                     spacing: 10
+                     spacing: 1
                      model: chatsDataModel
                      clip: true
 
@@ -161,7 +160,7 @@ import QtQuick.Controls 2.12
                                  id:goToChatPg
                                  anchors.fill: parent
                                  onClicked:{
-                                     pageStack.push(Qt.resolvedUrl(model.path))
+                                     stack_main.push(model.path)
                                  }
 
 
