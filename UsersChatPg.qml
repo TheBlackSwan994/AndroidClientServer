@@ -148,7 +148,6 @@ Page{
                 {
                     id: youreTextInput
                     color: "#000000"
-                    maximumLength: 15
                     font.pointSize: 18
                     anchors.centerIn: parent
                     width: parent.width*0.7
