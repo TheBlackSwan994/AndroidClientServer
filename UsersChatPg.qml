@@ -54,62 +54,79 @@ Page{
 
 
         ListModel {
-              id: chatsDataModel
+            id:chatHistory
+                ListElement{sender: false; message: "Сообщение 1"; time:"11:15"}
+                ListElement{sender: true; message: "Сообщение 2"; time: "11:20"}
 
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
-            ListElement{}
+
 
 
 
           }
 
-        ListView {
-                 id: contactView
 
-                 anchors.fill: chatsArea
-                 spacing: 1
-                 model: chatsDataModel
-                 clip: true
+        property alias chat: chatHistory
+          ListView {
+              id: openedChatView
+              clip: true
+              spacing: 55
+              anchors.margins: 16
+              height: userChat1.height - chatsHeader.height -sendArea.height-90
+              width: userChat1.width
+              y:chatsHeader.height+10
+              highlightFollowsCurrentItem: true
+                model:chatHistory
 
-
-
-                 delegate: Item{
-                     id: delegateOfListViewChats
-                     width: contactView.width
-                     height: 60
-                     Rectangle {
-                         color: "#000000"
-
-                         anchors.margins: 5
-                         anchors.fill: parent
+                delegate: Item{
+                    id: userMSG
 
 
+                    height: shouldShowTime? backgroundMSG.height +25: backgroundMSG.height
+                    width: backgroundMSG.width
+
+                    property bool shouldShowTime: chatHistory.count -1 == index? true :chatHistory.get(index+1).sender !== sender
+
+                    Rectangle {
+                        id: backgroundMSG
+                        anchors.margins: 5
+                        height: messageText.implicitHeight +24
+                        width: Math.min(messageText.implicitWidth + 24, (openedChatView.width * 0.8))
+                        radius: 32
+                        x: sender? 10: openedChatView.width - width -10
+
+                        color: sender? color="#f4f3f7" : color ="#000000"
+
+
+                        Text {
+                            id: messageText
+                            text: message
+                            anchors.fill: parent
+                            anchors.margins: 12
+                            wrapMode: Text.Wrap
+                            font.pointSize: 20
+                            color: sender? color="#000000":color="#DCDCDC"
+                            verticalAlignment: Qt.AlignVCenter
+                            horizontalAlignment: sender? Qt.AlignLeft: Qt.AlignRight
+                        }
+
+                        Text {
+                            anchors.top: backgroundMSG.bottom; anchors.topMargin: 10
+                            anchors.right: sender? undefined: parent.right
+                            horizontalAlignment: sender? Qt.AlignLeft: Qt.AlignRight
+                            text: time
+                            width: backgroundMSG.width
+                            height: 12
+
+                            color: "#000000"
+                            opacity: 0.3
+                        }
+
+                    }
+                }
 
 
 
-
-
-
-
-
-                     }
-
-                 }
-
-
-
-
-             }
+          }
 
 
         }
@@ -121,6 +138,7 @@ Page{
                 anchors.bottom:parent.bottom
                 anchors.bottomMargin: 10
                 height: 60
+                clip:true
                 color: "#ffffff"
                 radius: 16
                 border.width: 1
