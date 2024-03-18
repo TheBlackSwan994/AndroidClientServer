@@ -160,7 +160,7 @@ import QtQuick.Controls 2.12
                                  id:goToChatPg
                                  anchors.fill: parent
                                  onClicked:{
-                                     stack_main.push(model.path)
+                                     stack_main.push(Qt.resolvedUrl(model.path))
                                  }
 
 

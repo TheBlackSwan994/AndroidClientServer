@@ -56,6 +56,9 @@ import QtQuick.Controls 2.12
 
         UsersChatPg {
         id: userChat1
+        visible: false
+
+        onBackPg: {stack_main.pop()}
 
         }
 
