@@ -12,14 +12,14 @@ Page{
 
 
           Rectangle {
-              id: chatsHeader
+              id: chatHeader
               width: parent.width
               height: 60
                 RowLayout {
                     anchors.fill: parent
                     Button{
                         id:backBut
-                        onClicked: {stack_main.pop}
+                        onClicked: {stack_main.pop()}
                         font.pointSize: 24
                         anchors.verticalCenter: parent.verticalCenter
                         text: StackView.depth ? "\u25C0":"\u2190"
@@ -48,8 +48,8 @@ Page{
 
         Rectangle{
             id:chatsArea
-            y:chatsHeader.height
-        height: userChat1.height -chatsHeader.height - 70
+            y:chatHeader.height
+        height: userChat1.height -chatHeader.height - 70
         width: userChat1.width
 
 
@@ -70,9 +70,9 @@ Page{
               clip: true
               spacing: 55
               anchors.margins: 16
-              height: userChat1.height - chatsHeader.height -sendArea.height-90
+              height: userChat1.height - chatHeader.height -sendArea.height-90
               width: userChat1.width
-              y:chatsHeader.height+10
+              y:chatHeader.height+10
               highlightFollowsCurrentItem: true
                 model:chatHistory
 
@@ -93,7 +93,7 @@ Page{
                         radius: 32
                         x: sender? 10: openedChatView.width - width -10
 
-                        color: sender? color="#f4f3f7" : color ="#000000"
+                        color: sender? color="#f4f3f7" : color ="#29303C"
 
 
                         Text {
@@ -165,7 +165,7 @@ Page{
             anchors.verticalCenter: sendArea.verticalCenter
             background: Rectangle{
             anchors.centerIn: parent
-            color:"#000000"
+            color:"#29303C"
             height: sendArea.height*0.8
             width: height
             radius: height/2
