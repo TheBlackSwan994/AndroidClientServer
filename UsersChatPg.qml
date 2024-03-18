@@ -65,7 +65,6 @@ Page{
           }
 
 
-        property alias chat: chatHistory
           ListView {
               id: openedChatView
               clip: true
@@ -147,7 +146,7 @@ Page{
 
             TextInput
                 {
-                    id: inpMSG
+                    id: youreTextInput
                     color: "#000000"
                     maximumLength: 15
                     font.pointSize: 18
@@ -160,7 +159,7 @@ Page{
                 }
 
             Button{
-
+                onClicked: sendMSG();
             anchors.right: sendArea.right
             anchors.rightMargin: 10
             anchors.verticalCenter: sendArea.verticalCenter
@@ -170,6 +169,7 @@ Page{
             height: sendArea.height*0.8
             width: height
             radius: height/2
+
                 Text {
                     text: stack_main.depth?"\u2332":"\u2332"
                     color: "#ffffff"
@@ -180,6 +180,24 @@ Page{
             }
 
             }
+        function sendMSG(){
+            if(youreTextInput.text == "")
+            return;
+
+           var isSender = Math.random() > 0.5;
+            console.log("Sending mesage");
+           var currentTime = new Date();
+           var  hours = currentTime.getHours() < 10 ? "0" + currentTime.getHours() : currentTime.getHours();
+           var  minutes = currentTime.getMinutes() < 10 ? "0" + currentTime.getMinutes() : currentTime.getMinutes();
+
+            chatHistory.append({
+                "sender": isSender,
+                "message": youreTextInput.text,
+                "time": hours + ":" + minutes
+                                   });
+            youreTextInput.text = "";
+
+        }
 
 }
 
