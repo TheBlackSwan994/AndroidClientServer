@@ -125,6 +125,8 @@ Page{
                 radius: 16
                 border.width: 1
 
+
+
             TextInput
                 {
                     id: inpMSG
@@ -132,11 +134,33 @@ Page{
                     maximumLength: 15
                     font.pointSize: 18
                     anchors.centerIn: parent
-                    anchors.fill: parent
+                    width: parent.width*0.7
+                    anchors.left: parent.left
+                    anchors.verticalCenter: parent.verticalCenter
                     verticalAlignment: Text.AlignVCenter
-                    anchors.left: parent
                     anchors.leftMargin: 10
                 }
+
+            Button{
+
+            anchors.right: sendArea.right
+            anchors.rightMargin: 10
+            anchors.verticalCenter: sendArea.verticalCenter
+            background: Rectangle{
+            anchors.centerIn: parent
+            color:"#000000"
+            height: sendArea.height*0.8
+            width: height
+            radius: height/2
+                Text {
+                    text: stack_main.depth?"\u2332":"\u2332"
+                    color: "#ffffff"
+                    anchors.centerIn: parent
+                }
+
+            }
+            }
+
             }
 
 }
