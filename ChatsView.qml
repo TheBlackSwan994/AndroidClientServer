@@ -89,8 +89,8 @@ import QtQuick.Controls 2.12
             ListModel {
                   id: chatsDataModel
 
-                  ListElement {name:"Василий"; lastMSG:"Привет, как скоро проект будет готов?"; path:"UsersChatPg.qml" }
-                  ListElement {name: "Елизавета"; lastMSG:"давай в 20:00" }
+                  ListElement {name:"Василий"; lastMSG:"Привет, как скоро проект будет готов?"; path:"UsersChatPg.qml"; iconPath:"qrc:/qt/qml/Authorization1Mar/anonymous.png" }
+                  ListElement {name: "Елизавета"; lastMSG:"давай в 20:00"; iconPath:"qrc:/qt/qml/Authorization1Mar/anonymous.png" }
 
 
               }
@@ -99,7 +99,7 @@ import QtQuick.Controls 2.12
                      id: contactView
 
                      anchors.fill: chatsArea
-                     spacing: 1
+                     spacing: 0
                      model: chatsDataModel
                      clip: true
 
@@ -108,11 +108,11 @@ import QtQuick.Controls 2.12
                      delegate: Item{
                          id: delegateOfListViewChats
                          width: contactView.width
-                         height: 60
+                         height: 70
                          Rectangle {
-                             color: "#000000"
+                             color: "#ffffff"
 
-                             anchors.margins: 5
+                             anchors.margins: 1
                              anchors.fill: parent
 
                             Rectangle{
@@ -121,19 +121,23 @@ import QtQuick.Controls 2.12
                                 anchors.bottom: parent.bottom
                                 anchors.margins: 5
                             color:"#ffffff"
-                            id: imageContact
+                            id: imageContactPlace
                             height: 50
                             width: height
                             radius: height/2
+                            Image{
+                            anchors.fill: parent
+                            source: model.iconPath
+                            }
 
                             }
 
                              Text {
                                  id: userName
-                                 anchors.left: imageContact.right
+                                 anchors.left: imageContactPlace.right
                                  anchors.leftMargin: 10
                                  text: model.name
-                                 color: "#ffffff"
+                                 color: "#000000"
                                  font.pointSize: 24
                                  verticalAlignment: Qt.AlignTop
                              }
@@ -141,7 +145,7 @@ import QtQuick.Controls 2.12
                              Text {
                                  id:lastMessageText
                                  anchors.top:  userName.bottom
-                                 anchors.left: imageContact.right; anchors.leftMargin: 10
+                                 anchors.left: imageContactPlace.right; anchors.leftMargin: 10
                                  verticalAlignment: Qt.AlignBottom
                                  font.pointSize: 12
                                  text: model.lastMSG
