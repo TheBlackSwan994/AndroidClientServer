@@ -22,7 +22,13 @@ Page{
         visible: true
         Layout.alignment: Qt.AlignCenter
         anchors.top: parent.top
-        color: "#C5C7C6"
+        color: "#f3f4f6"
+        Image {
+
+            anchors.centerIn: parent
+            id: mainImg
+            source: "qrc:/qt/qml/Authorization1Mar/clearLogo.png"
+        }
 
         Image {
             anchors.fill: parent
@@ -55,6 +61,7 @@ Page{
                 verticalAlignment: Text.AlignVCenter
                 anchors.left: parent
                 anchors.leftMargin: 10
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
             }
         }
 
@@ -97,7 +104,7 @@ Page{
             width: parent.width
             height: parent.height
             id: buttVisible
-            source:isVisiblePass.pressed?"qrc:/qt/qml/Authorization1Mar/hide.png":"qrc:/qt/qml/Authorization1Mar/visible.png"
+            source:isVisiblePass.pressed?"qrc:/qt/qml/Authorization1Mar/visible.png":"qrc:/qt/qml/Authorization1Mar/hide.png"
         }
         }
 
@@ -112,7 +119,7 @@ Page{
     onClicked: {pageRec()}
     font.pointSize: 16
     background: Rectangle{
-        color: "#C5C7C6"
+        color: "#f3f4f6"
     }
     Layout.alignment: Qt.AlignRight
 
@@ -150,7 +157,7 @@ Page{
     onClicked: {pageReg()}
     font.pointSize: 16
     background: Rectangle{
-        color: "#C5C7C6"
+        color: "#f3f4f6"
     }
     Layout.alignment: Qt.AlignRight
 

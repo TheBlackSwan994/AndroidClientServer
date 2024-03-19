@@ -31,6 +31,7 @@ import QtQuick.Controls 2.12
                     }
                     background: Rectangle{
                         color: "#29303C"
+
                         Text {
                             anchors.centerIn: parent
                             text:"Выйти"

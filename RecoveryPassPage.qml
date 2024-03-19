@@ -21,7 +21,7 @@ Rectangle{
     height: 100
     anchors.top: recoveryPassPg.top
     anchors.horizontalCenter: recoveryPassPg.horizontalCenter
-    color: "#C5C7C6"
+    color: "#f3f4f6"
 
     Button{
         id:backBut
@@ -30,7 +30,7 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         text: StackView.depth ? "\u25C0":"\u2190"
         background: Rectangle{
-        color: "#C5C7C6"
+        color: "#f3f4f6"
     }
 }
 
@@ -53,7 +53,7 @@ Rectangle{
     anchors.top: upperWrapper.bottom
     anchors.topMargin: 10
     anchors.horizontalCenter: recoveryPassPg.horizontalCenter
-    color: "#C5C7C6"
+    color: "#f3f4f6"
 
     Rectangle{
             //Внешний вид поля TextInput
@@ -75,6 +75,8 @@ Rectangle{
                 verticalAlignment: Text.AlignVCenter
                 anchors.left: parent
                 anchors.leftMargin: 10
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+
             }
         }
     Label{
@@ -96,7 +98,7 @@ Rectangle{
     height: 100
     anchors.top: upMiddleWrapper.bottom
     anchors.horizontalCenter: recoveryPassPg.horizontalCenter
-    color: "#C5C7C6"
+    color: "#f3f4f6"
 
     Label{
         id:inpNumLbl
@@ -104,6 +106,7 @@ Rectangle{
         text: "_ _ _ _"
         color: "#000000"
         font.pointSize: 32
+
     }
 
     TextInput{
@@ -111,6 +114,8 @@ Rectangle{
         inputMask: "0 0 0 0"
         anchors.centerIn: parent
         font.pointSize: 28
+        inputMethodHints: Qt.ImhFormattedNumbersOnly
+
     }
 
 

@@ -22,6 +22,7 @@ qt_add_qml_module(appAuthorization1Mar
     QML_FILES RegistrationPage.qml
     QML_FILES UsersChatPg.qml
     RESOURCES hide.png visible.png
+    RESOURCES clearLogo.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

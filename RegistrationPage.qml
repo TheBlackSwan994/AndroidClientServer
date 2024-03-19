@@ -19,7 +19,7 @@ import QtQuick.Controls 2.5
             Rectangle{
                     implicitWidth: parent
                     height: 60
-                    color: "#C5C7C6"
+                    color: "#f3f4f6"
         Button{
         Layout.alignment: Qt.AlignLeft
         onClicked: {backPg()}
@@ -27,7 +27,7 @@ import QtQuick.Controls 2.5
 
         text: StackView.depth ? "\u25C0":"\u2190"
         background: Rectangle{
-        color: "#C5C7C6"
+        color: "#f3f4f6"
         }
     }
 
@@ -162,6 +162,8 @@ import QtQuick.Controls 2.5
                 verticalAlignment: Text.AlignVCenter
                 anchors.left: parent
                 anchors.leftMargin: 10
+                inputMethodHints: Qt.ImhFormattedNumbersOnly
+
             }
         }
 
@@ -214,7 +216,7 @@ import QtQuick.Controls 2.5
             width: parent.width
             height: parent.height
             id: buttInventedVisible
-            source:isVisibleInventedPass.pressed?"qrc:/qt/qml/Authorization1Mar/hide.png":"qrc:/qt/qml/Authorization1Mar/visible.png"
+            source:isVisibleInventedPass.pressed?"qrc:/qt/qml/Authorization1Mar/visible.png":"qrc:/qt/qml/Authorization1Mar/hide.png"
         }
         }
 
@@ -266,7 +268,7 @@ import QtQuick.Controls 2.5
             width: parent.width
             height: parent.height
             id: buttVisibleRep
-            source:isVisiblePassRep.pressed?"qrc:/qt/qml/Authorization1Mar/hide.png":"qrc:/qt/qml/Authorization1Mar/visible.png"
+            source:isVisiblePassRep.pressed?"qrc:/qt/qml/Authorization1Mar/visible.png":"qrc:/qt/qml/Authorization1Mar/hide.png"
         }
         }
 

@@ -172,6 +172,7 @@ Page{
                 Text {
                     text: stack_main.depth?"\u2332":"\u2332"
                     color: "#ffffff"
+                    font.pointSize: 24
                     anchors.centerIn: parent
                 }
 

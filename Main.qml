@@ -21,7 +21,8 @@ import QtQuick.Controls 2.12
 
     AuthorizationPage {
         id: authorizationPg
-        background: color = "#C5C7C6"
+        background: color = "#f3f4f6"
+
         onPageReg: {stack_main.push(registrationPg)}
         onPageRec: {stack_main.push(recoveryPassPg)}
         onPageChats: {stack_main.push(chatsViPg)}
@@ -30,7 +31,8 @@ import QtQuick.Controls 2.12
 
     RegistrationPage {
         id: registrationPg
-        background: color = "#C5C7C6"
+        background: color = "#f3f4f6"
+
         visible: false
         onBackPg: {stack_main.pop()}
 
@@ -38,7 +40,7 @@ import QtQuick.Controls 2.12
 
     RecoveryPassPage {
         id: recoveryPassPg
-        background: color = "#C5C7C6"
+        background: color = "#f3f4f6"
         visible: false
         onBackPg: {stack_main.pop()}
 
@@ -47,7 +49,7 @@ import QtQuick.Controls 2.12
         ChatsView {
         id:  chatsViPg
         visible: false
-        background: color = "#C5C7C6"
+        background: color = "#f3f4f6"
         onBackPg: {stack_main.pop()}
         onGoChat: {stack_main.push(userChat1)}
                 }
