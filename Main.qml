@@ -37,13 +37,7 @@ import QtQuick.Controls 2.12
 
     }
 
-    RecoveryPassPage {
-        id: recoveryPassPg
-        background: color = "#f3f4f6"
-        visible: false
-        onBackPg: {stack_main.pop()}
 
-    }
 
         ChatsView {
         id:  chatsViPg

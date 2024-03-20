@@ -18,7 +18,6 @@ qt_add_qml_module(appAuthorization1Mar
     QML_FILES Main.qml
     QML_FILES AuthorizationPage.qml
     QML_FILES ChatsView.qml
-    QML_FILES RecoveryPassPage.qml
     QML_FILES RegistrationPage.qml
     QML_FILES UsersChatPg.qml
     RESOURCES hide.png visible.png
