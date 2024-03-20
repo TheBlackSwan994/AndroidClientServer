@@ -28,7 +28,7 @@ Rectangle{
         onClicked: {backPg()}
         font.pointSize: 24
         anchors.verticalCenter: parent.verticalCenter
-        text: StackView.depth ? "\u25C0":"\u2190"
+        text: StackView.depth ? "\u2190":"\u2190"
         background: Rectangle{
         color: "#f3f4f6"
     }

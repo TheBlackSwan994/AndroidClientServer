@@ -11,6 +11,8 @@ Page{
     id: userChat1
 
 
+
+
           Rectangle {
               id: chatHeader
               width: parent.width
@@ -42,7 +44,6 @@ Page{
                         font.pointSize: 20
                     }
                 }
-                Rectangle{id: lineOnHeader; height:1; width:userChat1.width; anchors.bottom: parent.bottom; color:"#000000" }
             }
 
 
@@ -54,6 +55,7 @@ Page{
 
 
         ListModel {
+
             id:chatHistory
                 ListElement{sender: false; message: "Сообщение 1"; time:"11:15"}
                 ListElement{sender: true; message: "Сообщение 2"; time: "11:20"}
@@ -69,10 +71,10 @@ Page{
               id: openedChatView
               clip: true
               spacing: 55
-              anchors.margins: 16
+              anchors.fill: parent
               height: userChat1.height - chatHeader.height -sendArea.height-90
               width: userChat1.width
-              y:chatHeader.height+10
+              y:chatHeader.height
               highlightFollowsCurrentItem: true
                 model:chatHistory
 
@@ -138,9 +140,8 @@ Page{
                 anchors.bottomMargin: 10
                 height: 60
                 clip:true
-                color: "#ffffff"
+                color: "#f4f3f7"
                 radius: 16
-                border.width: 1
 
 
 
@@ -170,7 +171,7 @@ Page{
             radius: height/2
 
                 Text {
-                    text: stack_main.depth?"\u2332":"\u2332"
+                    text: StackView.depth?"\u15C6":"\u15C6"
                     color: "#ffffff"
                     font.pointSize: 24
                     anchors.centerIn: parent

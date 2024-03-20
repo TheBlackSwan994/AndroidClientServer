@@ -9,6 +9,8 @@ import QtQuick.Controls 2.12
         id: chatsPg
 
 
+
+
             Drawer{
                 id: menu_main
             width: chatsPg.width*0.85
