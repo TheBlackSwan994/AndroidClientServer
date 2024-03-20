@@ -41,13 +41,52 @@ Page{
         }
         }
 
-//InpNumber
+
+        Label{
+        text: "Страна"
+        color: "#333333"
+        font.pointSize: 14
+        anchors.bottom: backgrOfСountry.top
+        anchors.bottomMargin: 10
+        anchors.left: backgrOfСountry.left
+        }
     Rectangle{
+            id: backgrOfСountry
+            //Внешний вид поля TextInput
+            implicitWidth: parent *0.9
+            height: 60
+            radius: 4
+            color: "#ffffff"
+            clip: true
+
+            ComboBox
+            {
+                id: inputСountry
+                font.pointSize: 20
+                height: parent.height * 1.2
+                anchors.centerIn: parent
+                implicitWidth: parent.width
+
+            }
+        }
+
+//InpNumber
+
+        Label{
+        text: "Номер телефона"
+        color: "#333333"
+        font.pointSize: 14
+        anchors.bottom: backgrOfNumber.top
+        anchors.bottomMargin: 10
+        anchors.left: backgrOfNumber.left
+        }
+    Rectangle{
+            id: backgrOfNumber
             //Внешний вид поля TextInput
             implicitWidth: parent *0.9
             height: 60
             color: "#ffffff"
-            radius: 16
+            radius: 4
             clip: true
         TextInput
             {
