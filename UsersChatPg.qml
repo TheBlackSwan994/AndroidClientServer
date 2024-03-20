@@ -19,22 +19,31 @@ Page{
               height: 60
                 RowLayout {
                     anchors.fill: parent
+                    spacing: 10
                     Button{
                         id:backBut
                         onClicked: {stack_main.pop()}
                         font.pointSize: 24
                         anchors.verticalCenter: parent.verticalCenter
                         text: StackView.depth ? "\u25C0":"\u2190"
-                        background: Rectangle{
-                        color: "#ffffff"
+                        background: Rectangle{ color: "#ffffff"}
+                        }
+
+                    Rectangle{
+                    height: 50
+                    width: height
+                    radius: height/2
+                    color: "#f4f3f7"
+                    Image{
+                    anchors.fill: parent
+                    source: "qrc:/qt/qml/Authorization1Mar/anonymous.png"
                     }
-                }
+                    }
+
                     Label {
                         font.pointSize: 24
                         color: "#000000"
                     text: "Василий"
-                        elide: Label.ElideRight
-                        horizontalAlignment: Qt.AlignHCenter
                         verticalAlignment: Qt.AlignVCenter
                         Layout.fillWidth: true
                     }
