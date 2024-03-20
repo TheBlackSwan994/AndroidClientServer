@@ -24,7 +24,6 @@ import QtQuick.Controls 2.12
         background: color = "#f3f4f6"
 
         onPageReg: {stack_main.push(registrationPg)}
-        onPageRec: {stack_main.push(recoveryPassPg)}
         onPageChats: {stack_main.push(chatsViPg)}
 
     }

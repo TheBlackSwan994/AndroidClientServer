@@ -66,57 +66,38 @@ Page{
         }
 
 
-//PasswordInput
     Rectangle{
         //Внешний вид поля TextInput
         implicitWidth: parent *0.9
         height: 60
-        color: "#ffffff"
+        color: "#f3f4f6"
         radius: 16
         clip: true
 
-    TextInput
-        {
-                id: inputPassword
-                color: "#000000"
-                echoMode: isVisiblePass.pressed? TextInput.Normal : TextInput.Password
-                maximumLength: 25
-                font.pointSize: 20
-                anchors.centerIn: parent
-                anchors.fill: parent
-                verticalAlignment: Text.AlignVCenter
-                anchors.left: parent
-                anchors.leftMargin: 10
-
+        Label{
+            id:inpNumLbl
+            anchors.centerIn: parent
+            text: "_ _ _ _ _"
+            color: "#000000"
+            font.pointSize: 32
 
         }
-        Button{
-            id: isVisiblePass
-            anchors.right: parent.right
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.topMargin: 2
-            anchors.rightMargin: 5
-            width: 35
-            height: 35
-           background:  Rectangle{
-        anchors.fill: parent
-        Image {
-            width: parent.width
-            height: parent.height
-            id: buttVisible
-            source:isVisiblePass.pressed?"qrc:/qt/qml/Authorization1Mar/visible.png":"qrc:/qt/qml/Authorization1Mar/hide.png"
-        }
-        }
 
-    }
+        TextInput{
+            color: "#000000"
+            inputMask: "0 0 0 0 0"
+            anchors.centerIn: parent
+            font.pointSize: 28
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+
+        }
 }
 
     Button{
-    text: "Забыли Пароль?"
+    text: "Получить код"
     font.underline: true
 
 
-    onClicked: {pageRec()}
     font.pointSize: 16
     background: Rectangle{
         color: "#f3f4f6"
