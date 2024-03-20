@@ -59,16 +59,37 @@ Page{
             color: "#ffffff"
             clip: true
 
+
             ComboBox
             {
+
+                editable: false
+
                 id: inputСountry
-                font.pointSize: 20
+                font.pointSize: 16
                 height: parent.height * 1.2
                 anchors.centerIn: parent
                 implicitWidth: parent.width
 
+
+
+                model: ListModel{
+                id: inputСountryModel
+
+                ListElement{text:  "Россия"}
+                ListElement{text:  "Белоруссия"}
+
+                }
+
+                onCurrentIndexChanged: {
+                    if(inputСountryModel.get(currentIndex).text == "Белоруссия"){inputNumber.inputMask = "+375 (000) 000 00 00"; inputNumber.text=""}
+                    if(inputСountryModel.get(currentIndex).text == "Россия"){inputNumber.inputMask = "+7 (000) 000 00 00"; inputNumber.text="" }
+
+                }
+
             }
         }
+
 
 //InpNumber
 
@@ -101,6 +122,7 @@ Page{
                 anchors.left: parent
                 anchors.leftMargin: 10
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
+
             }
         }
 
@@ -125,7 +147,9 @@ Page{
         TextInput{
             color: "#000000"
             inputMask: "0 0 0 0 0"
+            width: authorizationPg.width/2
             anchors.centerIn: parent
+            horizontalAlignment: Qt.AlignHCenter
             font.pointSize: 28
             inputMethodHints: Qt.ImhFormattedNumbersOnly
 
@@ -158,7 +182,7 @@ Page{
            color: "#ffffff"
            }
         implicitWidth: parent -10
-        implicitHeight: 70
+        implicitHeight: 60
         color: "#29303C"
         radius: 16
 

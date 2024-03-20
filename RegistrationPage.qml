@@ -142,6 +142,45 @@ import QtQuick.Controls 2.5
     }
 
 
+    Rectangle{
+            id: backgrOfСountry
+            //Внешний вид поля TextInput
+            implicitWidth: parent *0.9
+            height: 60
+            radius: 4
+            color: "#ffffff"
+            clip: true
+
+            ComboBox
+            {
+
+                editable: false
+
+                id: inputСountry
+                font.pointSize: 16
+                height: parent.height * 1.2
+                anchors.centerIn: parent
+                implicitWidth: parent.width
+
+
+
+                model: ListModel{
+                id: inputСountryModel
+
+                ListElement{text:  "Россия"}
+                ListElement{text:  "Белоруссия"}
+
+                }
+
+                onCurrentIndexChanged: {
+                    if(inputСountryModel.get(currentIndex).text == "Белоруссия"){inputNumber.inputMask = "+375 (000) 000 00 00"; inputNumber.text=""}
+                    if(inputСountryModel.get(currentIndex).text == "Россия"){inputNumber.inputMask = "+7 (000) 000 00 00"; inputNumber.text="" }
+
+                }
+
+            }
+        }
+
     //InpNumber
     Rectangle{
             //Внешний вид поля TextInput
