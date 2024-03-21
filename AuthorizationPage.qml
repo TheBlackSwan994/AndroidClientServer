@@ -90,6 +90,8 @@ Page{
                     switch(inputСountryModel.get(currentIndex).text){
                     case "Россия":{inputNumber.inputMask = "+ 7 (000) 000 00 00"; inputNumber.text=""; break;}
                     case "Белоруссия":{inputNumber.inputMask = "+ 375 (000) 000 00 00"; inputNumber.text=""; break;}
+
+
                     }
 
                 }

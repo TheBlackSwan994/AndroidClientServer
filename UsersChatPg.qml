@@ -147,27 +147,39 @@ Page{
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom:parent.bottom
                 anchors.bottomMargin: 10
-                height: 60
+                implicitHeight: 60
                 clip:true
                 color: "#f4f3f7"
                 radius: 16
 
 
 
+    ScrollView{
+        width: parent.width*0.78
+        height: parent.height
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        contentWidth: width
+
             TextInput
                 {
+
+                    autoScroll : true
                     id: youreTextInput
                     color: "#000000"
                     font.pointSize: 18
-                    anchors.centerIn: parent
-                    width: parent.width*0.7
+                    width: sendArea.width*0.74
                     anchors.left: parent.left
                     anchors.verticalCenter: parent.verticalCenter
-                    verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 10
+                    wrapMode: Text.Wrap
+                    onClipChanged: if(text.length>6){Text.Wrap}
+
                 }
+    }
 
             Button{
+                id:sendButt
                 onClicked: sendMSG();
             anchors.right: sendArea.right
             anchors.rightMargin: 10
