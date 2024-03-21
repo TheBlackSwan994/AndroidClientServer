@@ -3,10 +3,12 @@ import QtQuick.Window 2.3
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.5
 
+
 Page{
     signal pageReg();
     signal pageRec();
     signal pageChats();
+
 
     id: authorizationPg
 
@@ -75,15 +77,15 @@ Page{
 
                 model: ListModel{
                 id: inputСountryModel
-
                 ListElement{text:  "Россия"}
                 ListElement{text:  "Белоруссия"}
+
 
                 }
 
                 onCurrentIndexChanged: {
-                    if(inputСountryModel.get(currentIndex).text == "Белоруссия"){inputNumber.inputMask = "+375 (000) 000 00 00"; inputNumber.text=""}
-                    if(inputСountryModel.get(currentIndex).text == "Россия"){inputNumber.inputMask = "+7 (000) 000 00 00"; inputNumber.text="" }
+                    if(inputСountryModel.get(currentIndex).text == "Белоруссия"){inputNumber.inputMask = "+ 375 (000) 000 00 00"; inputNumber.text=""}
+                    if(inputСountryModel.get(currentIndex).text == "Россия"){inputNumber.inputMask = "+ 7 (000) 000 00 00"; inputNumber.text="" }
 
                 }
 
