@@ -75,8 +75,11 @@ Page{
 
 
 
+
+
                 model: ListModel{
                 id: inputСountryModel
+
                 ListElement{text:  "Россия"}
                 ListElement{text:  "Белоруссия"}
 
@@ -84,8 +87,10 @@ Page{
                 }
 
                 onCurrentIndexChanged: {
-                    if(inputСountryModel.get(currentIndex).text == "Белоруссия"){inputNumber.inputMask = "+ 375 (000) 000 00 00"; inputNumber.text=""}
-                    if(inputСountryModel.get(currentIndex).text == "Россия"){inputNumber.inputMask = "+ 7 (000) 000 00 00"; inputNumber.text="" }
+                    switch(inputСountryModel.get(currentIndex).text){
+                    case "Россия":{inputNumber.inputMask = "+ 7 (000) 000 00 00"; inputNumber.text=""; break;}
+                    case "Белоруссия":{inputNumber.inputMask = "+ 375 (000) 000 00 00"; inputNumber.text=""; break;}
+                    }
 
                 }
 
@@ -115,7 +120,6 @@ Page{
             {
                 id: inputNumber
                 color: "#000000"
-                inputMask:  "+7 (000) 000 00 00"
                 maximumLength: 15
                 font.pointSize: 20
                 anchors.centerIn: parent

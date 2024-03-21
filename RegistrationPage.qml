@@ -173,8 +173,10 @@ import QtQuick.Controls 2.5
                 }
 
                 onCurrentIndexChanged: {
-                    if(inputСountryModel.get(currentIndex).text == "Белоруссия"){inputNumberReg.inputMask = "+ 375 (000) 000 00 00"; inputNumberReg.text=""}
-                    if(inputСountryModel.get(currentIndex).text == "Россия"){inputNumberReg.inputMask = "+ 7 (000) 000 00 00"; inputNumberReg.text="" }
+                    switch(inputСountryModel.get(currentIndex).text){
+                    case "Белоруссия":{inputNumberReg.inputMask = "+ 375 (000) 000 00 00"; inputNumberReg.text=""; break;}
+                    case "Россия":{inputNumberReg.inputMask = "+ 7 (000) 000 00 00"; inputNumberReg.text=""; break;}
+                    }
 
                 }
 
@@ -193,7 +195,6 @@ import QtQuick.Controls 2.5
             {
                 id: inputNumberReg
                 color: "#000000"
-                inputMask:  "+7 (000) 000 00 00"
                 maximumLength: 15
                 font.pointSize: 20
                 anchors.centerIn: parent
