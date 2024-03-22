@@ -84,12 +84,25 @@ Page{
                 ListElement{text:  "Белоруссия"}
 
 
+
+
                 }
 
                 onCurrentIndexChanged: {
-                    switch(inputСountryModel.get(currentIndex).text){
-                    case "Россия":{inputNumber.inputMask = "+ 7 (000) 000 00 00"; inputNumber.text=""; break;}
-                    case "Белоруссия":{inputNumber.inputMask = "+ 375 (000) 000 00 00"; inputNumber.text=""; break;}
+                    let CountyNumber = new Map();
+
+                    CountyNumber.set("Россия", "+ 7 (000) 000 00 00");
+                    CountyNumber.set("Белоруссия", "+ 375 (000) 000 00 00");
+                    for ( let Country of CountyNumber){
+                        Country = Array.from(CountyNumber.keys())
+
+                        switch(inputСountryModel.get(currentIndex).text){
+                        case Country[0]:{inputNumber.inputMask =  CountyNumber.get(Country[0]); inputNumber.text=""; break;}
+                        case Country[1]:{inputNumber.inputMask =  CountyNumber.get(Country[1]); inputNumber.text=""; break;}
+
+                    }
+
+
 
 
                     }

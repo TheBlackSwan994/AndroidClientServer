@@ -173,9 +173,23 @@ import QtQuick.Controls 2.5
                 }
 
                 onCurrentIndexChanged: {
-                    switch(inputСountryModel.get(currentIndex).text){
-                    case "Белоруссия":{inputNumberReg.inputMask = "+ 375 (000) 000 00 00"; inputNumberReg.text=""; break;}
-                    case "Россия":{inputNumberReg.inputMask = "+ 7 (000) 000 00 00"; inputNumberReg.text=""; break;}
+                    let CountyNumber = new Map();
+
+
+                    CountyNumber.set("Россия", "+ 7 (000) 000 00 00");
+                    CountyNumber.set("Белоруссия", "+ 375 (000) 000 00 00");
+                    for ( let Country of CountyNumber){
+                        Country = Array.from(CountyNumber.keys())
+
+                        switch(inputСountryModel.get(currentIndex).text){
+                        case Country[0]:{inputNumberReg.inputMask =  CountyNumber.get(Country[0]); inputNumberReg.text=""; break;}
+                        case Country[1]:{inputNumberReg.inputMask =  CountyNumber.get(Country[1]); inputNumberReg.text=""; break;}
+
+                    }
+
+
+
+
                     }
 
                 }

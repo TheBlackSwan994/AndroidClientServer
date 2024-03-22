@@ -160,6 +160,9 @@ Page{
         anchors.left: parent.left
         anchors.leftMargin: 10
         contentWidth: width
+        ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+        ScrollBar.vertical.policy: ScrollBar.AlwaysOff
+
 
             TextInput
                 {
@@ -173,7 +176,6 @@ Page{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.leftMargin: 10
                     wrapMode: Text.Wrap
-                    onClipChanged: if(text.length>6){Text.Wrap}
 
                 }
     }
